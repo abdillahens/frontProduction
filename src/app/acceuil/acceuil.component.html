@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Creative - Start Bootstrap Theme</title>
+    <!-- Favicon-->
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+        rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <!-- <link href="styles.css" rel="stylesheet" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" async
+        crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <!-- Modal -->
+    <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content form-elegant">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Se
+                            connecter</strong></h3>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mx-4">
+                    <!--Body-->
+                    <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+                        <div class="md-form mb-4 form-group">
+                            <input type="email" id="Form-email1" formControlName="email"
+                                class="form-control validate validate" [ngClass]="{ 'is-invalid': submitted && f2.email.errors }" placeholder="Votre email">
+                            <div *ngIf="submitted && f2.email.errors" class="invalid-feedback">
+                                <div *ngIf="f2.email.errors.required">Email est obligatoire</div>
+                                <div *ngIf="f2.email.errors.email">Email doit être valide</div>
+                            </div>
+                        </div>
+
+                        <div class="md-form pb-3 form-group">
+                            <input type="password" id="Form-pass1" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f2.password.errors }"
+                                class="form-control validate validate" placeholder="Votre mot de pass">
+                            <div *ngIf="submitted && f2.password.errors" class="invalid-feedback">
+                                <div *ngIf="f2.password.errors.required">Password est obligatoire</div>
+                            </div>
+                            <h6 *ngIf="loginFailled">
+                                <br>
+                                <div class="text-danger">Email ou le mot de pass est incorrect</div>
+                            </h6>
+                            <!-- <p class="font-small blue-text d-flex justify-content-end mt-2"> <a href="#"
+                                    class="blue-text mr-1">
+                                    Mot de pass </a> Oublié?</p> -->
+                        </div>
+                    </form>
+
+                    <div class="text-center mb-3">
+                        <button type="button" (click)="loginSubmit()"
+                            class="btn blue-gradient btn-block btn-rounded z-depth-1a">Se
+                            connecter</button>
+                    </div>
+                    <p class="font-small grey-text text-right d-flex justify-content-center mb-3 pt-2"> Ou continuer
+                        avec:</p>
+
+                    <div class="row my-3 d-flex  justify-content-center">
+                        <!--Facebook-->
+                        <button type="button" class="btn btn-white reseux btn-rounded mr-md-3 z-depth-1a"><i
+                                class="fab fa-facebook-f text-center"></i></button>
+                        <!--Twitter-->
+                        <!-- <button type="button" class="btn btn-white reseux btn-rounded mr-md-3 z-depth-1a"><i
+                                class="fab fa-twitter"></i></button> -->
+                        <!--Google +-->
+                        <button (click)="signInGoogle()" type="button"
+                            class="btn btn-white reseux btn-rounded z-depth-1a"><i
+                                class="fab fa-google-plus-g"></i></button>
+                    </div>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer mx-5 pt-3 mb-1">
+                    <p class="font-small grey-text d-flex justify-content-end">vous n'êtes pas un membre? <a (click)="membre()"
+                            class="blue-text ml-1">
+                            S'inscrire</a></p>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Modal -->
+
+    <!-- ======= Header ======= -->
+    <app-navbar></app-navbar>
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <h1>Bienvenue, votre santé mentale est notre priorité!</h1>
+                    <h2>On est là pour promouvoir votre santé mentale et vous aidez à surmonter vos problèmes.</h2>
+                    <div class="d-flex justify-content-center justify-content-lg-start">
+                        <a class="btn-get-started scrollto" href="/registre/specialiste">Rejoinez nous</a>
+                        <a href="https://www.youtube.com/watch?v=Zhr0FmhSuzg&ab_channel=OCP" class="glightbox btn-watch-video"><i
+                                class="bi bi-play-circle"></i><span>Voir le video</span></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://www.medico-call.com/wp-content/uploads/2021/10/Home-final-1.png" class="img-fluid animated" style="" alt="">
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+    <!-- c'est quoi MEDICO CALL -->
+
+    <section class="features15 cid-sI5qxLAWtd" id="features16-b" style="background: #37517e;">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg">
+                        <div class="text-wrapper">
+                            <h6 class="card-title mbr-fonts-style display-4"  style="color: white; text-align: center;"><strong>C'est quoi Medico-call ?
+    </strong><strong><br></strong></h6>
+                            <h4 class="mbr-text mbr-fonts-style mb-4"  style="color: #bbbbbb;">
+                                <br>Medico-call est un service d'aide par téléphone qui se base sur le télé-accueil en proposant un soutien, toute personne qui souffre de troubles psychologiques de solitude ou même de dépression peut contacter nos spécialistes dans le métier qui l'accompagnent afin de surmonter ses problèmes. De plus, nous accordons à notre clientèle la générosité de choisir le moment et le temps adéquat pour être écoutée. Fort de son potentiel d’accueil et de disponibilité, Medico-call offre un service de qualité, assuré par une équipe de spécialistes avec une multitude de compétences. 
+                            </h4>
+                        </div>
+    
+                    </div>
+                    <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="../../assets/img/quoiMedico-1.png" class="img-fluid animated" alt="">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- l'equipe medico call -->
+    <section class="content7 cid-sI5mJ8ah0S" id="content7-6" style="background: #37517e;">
+        
+        <div class="container-fluid" >
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-11">
+                    <blockquote>
+                    <h5 class="mbr-section-title mbr-fonts-style mb-2 display-4" style="color: white; text-align: center;"><strong>L'équipe Medico-call ?
+    </strong></h5>
+    <br>
+                    <h4 class="mbr-text mbr-fonts-style" style="color: #bbbbbb;">Medico-call recrute pour son service un groupe des psychologues hautement qualifiés de différentes spécialités en se basant sur les études menées et les demandes de nos clients . A cet effet nos spécialistes de plus de leur formation pédagogique, ont bénéficié d’un cycle de formation supplémentaire propre à Medico-call assurée par des experts du domaine. Ce programme vise principalement à accroître leurs compétences techniques, leurs qualités personnelles et managériales afin de répondre aux besoins et exigences de nos clients.
+    <br>Medico-call vise aussi avec son programme puissant et son travail acharné d’assurer un service de haut niveau permettant de garantir le bien-être de nos bénéficiaires.</h4></blockquote>
+                </div>
+                <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="../../assets/img/equipe-1.png" class="img-fluid animated" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- le role de medico call -->
+    
+    
+    <section class="features17 cid-sI5wL6cfiv" id="features18-e" style="background: #37517e;">
+        <div class="container">
+            <div class="mbr-section-head" style="color: white; text-align: center;">
+                <div class="col-12">
+                    <h4 class="align-center mb-0 display-4">
+                        <strong>Le rôle de Medico-call ?</strong>
+                    </h4>                
+                </div>
+            </div>
+            <div class="row mt-4" style="color: #bbbbbb;">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper mb-4">
+                        <div class="card-box align-left">                      
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7">Le rôle de Medico-call consiste à assurer un suivi psychologique de près pour le patient en lui accompagnant jusqu’à la phase de la stabilité mentale tout cela en lui offrant un soutien moral qui répond à ses besoins, ses exigences, et ses ambitions dans un cadre professionnel et anonymat absolu.</p><div class="link-wrap">                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper mb-4">
+                        <div class="card-box align-left">
+                            
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7">Medico-call s’engage à assurer un climat de dialogue et d’échange, son groupe de spécialistes hautement qualifiés dynamiques et actifs est toujours à l’écoute pour offrir un service à la hauteur et vous orientez à faire le bon choix dans le bon  moment, prendre des bonnes décisions et affronter les défis de demain.&nbsp;&nbsp;<br></p><div class="link-wrap">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper mb-4">
+                        <div class="card-box align-left">
+                            
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7">Outre, le rôle de Medico-call dépasse le secteur professionnel pour arriver à un stade de confiance liant le patient au spécialiste, cette relation qui dépasse les bornes donnant ce sentiment de chez soi d’être en famille et garder cette relation à jamais.&nbsp;<br></p><div class="link-wrap">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper mb-4">
+                        <div class="card-box align-left">
+                            
+                            <p class="mbr-text mbr-fonts-style mb-3 ">
+                                <img src="../../assets/img/role1.png" class="img-fluid animated" alt="role" style="size: 200px;">
+                                </p><div class="link-wrap">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- les avantages de medico call -->
+    
+    <section class="content8 cid-sI5mH7ss9i" id="content8-5" style="background: #37517e;">
+        
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg ">
+                    <div class="text-wrapper">
+                    <h4 class="card-title mbr-fonts-style display-4" style="color: white; text-align: center;"><strong>Les avantages de Medico-call ?</strong></h4>
+                    <div class="mbr-text mbr-fonts-style mb-4" style="color: #bbbbbb">
+                        <ul>
+                            <li>Accès a un ensemble de tests psychologiques ( Dépression – Stress – Anxiété) <strong>gratuitement </strong>plus un accompagnement personnalisé selon vos scores.&nbsp;<a href="https://mobiri.se/" class="text-white">Essayez-le maintenant!</a></li>
+                            <li><strong>Service confidentiel</strong>, assuré par des spécialistes hautement qualifiés bien formés.&nbsp;<a href="https://mobiri.se/" class="text-white">Essayez-le maintenant!</a></li>
+                            <li><strong>Service disponible 24h/24 et 7j/7, </strong>assuré par des spécialistes hautement qualifiés bien formés.&nbsp;<a href="https://mobiri.se/" class="text-white">Essayez-le maintenant!</a></li>
+                        </ul>
+                        
+                    </div>
+                    </div>
+                </div>
+                    <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="60">
+                        <img src="../../assets/img/avantage2.png" class="img-fluid animated" alt="">
+                    </div>    
+            </div>
+        </div>
+    </section> 
+    
+    <footer class="footer">
+        <div class="container">
+        <ul class="foote_bottom_ul_amrc">
+        <li><a href="#">Accueil</a></li>
+        <!-- <li><a href="#">Departement</a></li> -->
+        <!-- <li><a href="#">Services</a></li> -->
+        <li><a href="#">A propos</a></li>
+        <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="social_footer_ul">
+        <li><a href="http://facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="http://linkedin.com"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="http://instagram.com"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+        <!--social_footer_ul ends here-->
+        <br>
+        <p class="text-center">Copyright @2021 Medico Call. Tous les droits sont réservés..</p>
+        <!--foote_bottom_ul_amrc ends here-->
+        </div>
+        </footer>
+
+
+    <!-- Modal -->
+    <div class="modal fade " id="elegantModalFormRegistre" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <!--Content-->
+            <div class="modal-content form-elegant">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3 ms-5" id="myModalLabel">
+                        <strong>Inscription</strong>
+                    </h3>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mx-4">
+                    <!--Body-->
+                    <form [formGroup]="registerForm" (ngSubmit)="registreSubmit()">
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" formControlName="nom" class="form-control validate"
+                                        placeholder="Votre Nom *"
+                                        [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" />
+                                    <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                                        <div *ngIf="f.nom.errors.required">Nom est obligatoire</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" formControlName="prenom" placeholder="Votre prénom *"
+                                        class="form-control validate"
+                                        [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }" />
+                                    <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                                        <div *ngIf="f.prenom.errors.required">Prénom est obligatoire</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <select formControlName="sexe" class="form-control validate"
+                                            [ngClass]="{ 'is-invalid': submitted && f.sexe.errors }"
+                                            class="custom-select validate">
+                                            <option value="" selected disabled>Votre sexe *</option>
+                                            <option value="M">M</option>
+                                            <option value="F">F</option>
+                                        </select>
+                                        <div *ngIf="submitted && f.sexe.errors" class="invalid-feedback">
+                                            <div *ngIf="f.sexe.errors.required">Sexe est obligatoire</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input placeholder="Date de naissance *" type="text" onfocus="(this.type='date')"
+                                        onblur="(this.type='text')" formControlName="date_naissance"
+                                        class="form-control validate"
+                                        [ngClass]="{ 'is-invalid': submitted && f.date_naissance.errors }" />
+                                    <div *ngIf="submitted && f.date_naissance.errors" class="invalid-feedback">
+                                        <div *ngIf="f.date_naissance.errors.required">Date de naissance est obligatoire
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" formControlName="email" placeholder="Votre email *"
+                                        class="form-control validate"
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">Email est obligatoire</div>
+                                        <div *ngIf="f.email.errors.email">Email doit être valide</div>
+                                    </div>
+                                    <p *ngIf="EmailExist" class="text-danger pt-1 ps-2">Email déja exist !!</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <!-- (keyup)="changeTele()" -->
+                                <div class="form-group">
+                                    <input type="text" [(ngModel)]="TELE" (focus)="changeTele()"
+                                        placeholder="Votre numèro de téléphone *" formControlName="tele"
+                                        class="form-control validate"
+                                        [ngClass]="{ 'is-invalid': submitted && f.tele.errors }" />
+                                    <div *ngIf="submitted && f.tele.errors" class="invalid-feedback">
+                                        <div *ngIf="f.tele.errors.required">Numèro de téléphone est obligatoire</div>
+                                        <div *ngIf="f.tele.errors.pattern">Numèro de téléphone invalide.</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <select formControlName="profession" class="form-control validate"
+                                        [ngClass]="{ 'is-invalid': submitted && f.profession.errors }"
+                                        class="custom-select validate">
+                                        <option value="" selected disabled>Votre profession *</option>
+                                        <option value="Etudiant">Etudiant</option>
+                                        <option value="Professeur">Professeur</option>
+                                        <option value="Doctorant">Doctorant</option>
+                                        <option value="autre">autre</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.profession.errors" class="invalid-feedback">
+                                        <div *ngIf="f.profession.errors.required">profession est obligatoire</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <select formControlName="niveauScolaire" class="form-control validate"
+                                        [ngClass]="{ 'is-invalid': submitted && f.niveauScolaire.errors }"
+                                        class="custom-select validate">
+                                        <option value="" selected disabled>Votre niveau scolaire *</option>
+                                        <option value="1 ère année preparatoire">1 ère année preparatoire</option>
+                                        <option value="2 ème année preparatoire">2 ème année preparatoire</option>
+                                        <option value="1 ère année cycle d'ingenieur">1 ère année cycle d'ingenieur
+                                        </option>
+                                        <option value="2 ème année cycle d'ingénieur">2 ème année cycle d'ingénieur
+                                        </option>
+                                        <option value="3 ème année cycle d'ingénieur">3 ème année cycle d'ingénieur
+                                        </option>
+                                    </select>
+                                    <div *ngIf="submitted && f.profession.errors" class="invalid-feedback">
+                                        <div *ngIf="f.profession.errors.required">profession est obligatoire</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" [(ngModel)]='password' placeholder="Votre mot de passe *" formControlName="password"
+                                        class="form-control validate"
+                                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Password est obligatoire</div>
+                                        <div *ngIf="f.password.errors.minlength">minumum 6 characters and le mot de pass
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" placeholder="Confirmer votre mot de passe *"
+                                        formControlName="passwordConfirm" class="form-control validate"
+                                        [ngClass]="{ 'is-invalid': submitted && f.passwordConfirm.errors }" />
+                                    <div *ngIf="submitted && f.passwordConfirm.errors" class="invalid-feedback">
+                                        <div *ngIf="f.passwordConfirm.errors.required">Password est obligatoire</div>
+                                        <div *ngIf="f.passwordConfirm.errors.mutchPass">Le mot de pass n'est pas semblable</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <div class="text-center mb-3 mt-3 me-auto">
+                        <button type="button" (click)="registreSubmit()"
+                            class="btn blue-gradient btn-block btn-rounded z-depth-1a inscrire">S'inscrire</button>
+                    </div>
+                    <p class="font-small grey-text text-right d-flex justify-content-center mb-3 pt-2"> Ou continuer
+                        avec:</p>
+
+                    <div class="row my-3 d-flex  justify-content-center">
+                        <!--Facebook-->
+                        <button type="button" class="btn btn-white reseux btn-rounded mr-md-3 z-depth-1a"><i
+                                class="fab fa-facebook-f text-center"></i></button>
+                        <!--Twitter-->
+                        <!-- <button type="button" class="btn btn-white reseux btn-rounded mr-md-3 z-depth-1a"><i
+                                class="fab fa-twitter"></i></button> -->
+                        <!--Google +-->
+                        <button (click)="signInGoogle()" type="button"
+                            class="btn btn-white reseux btn-rounded z-depth-1a"><i
+                                class="fab fa-google-plus-g"></i></button>
+                    </div>
+                </div>
+                <!--Footer-->
+                <!-- <div class="modal-footer mx-5 pt-3 mb-1">
+                    <p class="font-small grey-text d-flex justify-content-end">vous n'etes pas un membre? <a href="#"
+                            class="blue-text ml-1">
+                            S'inscrire</a></p>
+                </div> -->
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Modal -->
+
+    <div class="modal fade " id="elegantModalFormRegistreContinue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <!--Content-->
+        <div class="modal-content form-elegant">
+            <!--Header-->
+            <div class="modal-header text-center">
+                <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3 ms-5" id="myModalLabel">
+                    <strong>Continue Votre Inscription</strong>
+                </h3>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body mx-4">
+                <!--Body-->
+                <form [formGroup]="continueForm" (ngSubmit)="registreSubmit()">
+                    <div class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" formControlName="nom" class="form-control"
+                                    placeholder="Votre nom *" readonly/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" formControlName="prenom" placeholder="Votre prénom *"
+                                    class="form-control"  readonly/>
+                            </div>
+                            <div class="form-group">
+                                <div class="maxl">
+                                    <select formControlName="sexe" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f3.sexe.errors }"
+                                        class="custom-select">
+                                        <option value="" selected disabled>Votre sexe *</option>
+                                        <option value="M">M</option>
+                                        <option value="F">F</option>
+                                    </select>
+                                    <div *ngIf="submitted && f3.sexe.errors" class="invalid-feedback">
+                                        <div *ngIf="f3.sexe.errors.required">Sexe est obligatoire</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input placeholder="Date de naissance *" type="text" onfocus="(this.type='date')"
+                                    onblur="(this.type='text')" formControlName="date_naissance"
+                                    class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f3.date_naissance.errors }" />
+                                <div *ngIf="submitted && f3.date_naissance.errors" class="invalid-feedback">
+                                    <div *ngIf="f3.date_naissance.errors.required">Date de naissance est obligatoire
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" formControlName="email" placeholder="Votre email *"
+                                    class="form-control"  readonly />
+                            </div>
+                            <!-- (keyup)="changeTele()" -->
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="TELE" (focus)="changeTele()"
+                                    placeholder="Votre Numero De Tele *" formControlName="tele"
+                                    class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f3.tele.errors }" />
+                                <div *ngIf="submitted && f3.tele.errors" class="invalid-feedback">
+                                    <div *ngIf="f3.tele.errors.required">Numèro de téléphone est obligatoire</div>
+                                    <div *ngIf="f3.tele.errors.pattern">Numèro de téléphone invalide.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <select formControlName="profession" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f3.profession.errors }"
+                                    class="custom-select">
+                                    <option value="" selected disabled>Votre profession *</option>
+                                    <option value="Etudiant">Etudiant</option>
+                                    <option value="Professeur">Professeur</option>
+                                    <option value="Doctorant">Doctorant</option>
+                                    <option value="autre">autre</option>
+                                </select>
+                                <div *ngIf="submitted && f3.profession.errors" class="invalid-feedback">
+                                    <div *ngIf="f3.profession.errors.required">profession est obligatoire</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <select formControlName="niveauScolaire" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f3.niveauScolaire.errors }"
+                                    class="custom-select">
+                                    <option value="" selected disabled>Votre niveau scolaire *</option>
+                                    <option value="1 ère année preparatoire">1 ère année preparatoire</option>
+                                    <option value="2 ème année preparatoire">2 ème année preparatoire</option>
+                                    <option value="1 ère année cycle d'ingenieur">1 ère année cycle d'ingenieur
+                                    </option>
+                                    <option value="2 ème année cycle d'ingénieur">2 ème année cycle d'ingénieur
+                                    </option>
+                                    <option value="3 ème année cycle d'ingénieur">3 ème année cycle d'ingénieur
+                                    </option>
+                                </select>
+                                <div *ngIf="submitted && f3.profession.errors" class="invalid-feedback">
+                                    <div *ngIf="f3.profession.errors.required">profession est obligatoire</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="text-center mb-3 mt-3 me-auto">
+                    <button type="button" (click)="continueRegistre()"
+                        class="btn blue-gradient btn-block btn-rounded z-depth-1a inscrire">Continue à  S'inscrire</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>    
+
+    <!-- Modal-for registre success -->
+    <div class="modal fade" id="elegantModalFormSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content form-elegant">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong
+                            class="text-success">Votre inscription est bien envoyer</strong></h3>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mx-4 text-center">
+                    {{message}}
+                </div>
+                <!--Footer-->
+
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Modal -->
+
+</body>
+<!-- <script>
+    const navbar = document.querySelector('.fixed-top');
+window.onscroll = () => {
+    if (window.scrollY > 300) {
+        navbar.classList.add('nav-active');
+    } else {
+        navbar.classList.remove('nav-active');
+    }
+};
+</script> -->
+<script src="../../assets/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</html>

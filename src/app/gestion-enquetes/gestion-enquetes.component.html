@@ -1,0 +1,99 @@
+<app-nav-bar-test></app-nav-bar-test>
+<div class="all">
+    <div class="modal fade m-0" id="addPhoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered mt-3 mb-0" role="document">
+            <div class="modal-content">
+                <div class="modal-body container text-center p-5 m-0">
+                    <div class="div"><img id="myImage3"
+                            [src]="specialistesValue().picture ? specialistesValue().picture :  profile " (click)="editPhoto()"
+                            alt="client" class="rounded-circle profile" width="200" height="200"></div>
+                    <br>
+                    <h4>{{specialistesValue().nom}} {{specialistesValue().prenom}}</h4>
+                    <p class="mt-3">veuillez charger votre photo de profile</p> <br><br>
+                    <div class="mb-4">
+                        <input class="file-input form-control" (change)="selectImg($event)" type="file"
+                            #UploadFileInput />
+                    </div>
+                    <button class="btn btn-warning submit" (click)="changePhoto()" [disabled]="charged">ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade m-0" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered mt-3 mb-0" role="document">
+            <div class="modal-content">
+                <div class="modal-body container text-center p-5 m-0">
+                    <div class="div"><img id="myImage2"
+                            [src]="specialistesValue().picture ? specialistesValue().picture :  profile " (click)="editPhoto()"
+                            alt="client" class="profile" width="200" height="200"></div>
+                    <br>
+                    <h4>{{specialistesValue().nom }} {{specialistesValue().prenom }}</h4>
+                    <p class="mt-5 subject">Votre photo de profil aide les autres utilisateurs à vous reconnaître et
+                        vous permet de savoir quand vous êtes connecté à votre compte</p>
+                    <div class="row mt-5">
+                        <div><button class="btn btn-primary submit" (click)="addPhoto()">modifier</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <body class="m-0">
+        <br>
+        <div class="container">
+            <div class="main-body">
+                <div class="row gutters-sm">
+                    <div class="col-md-3 mb-1">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img id="myImage1"
+                                        [src]="specialistesValue().picture ? specialistesValue().picture :  profile "
+                                        (click)="editPhoto()" alt="client" class="rounded-circle profile" width="200"
+                                        height="200">
+                                    <hr>
+                                    <div class="">
+                                        <h4>{{specialistesValue().nom }} {{specialistesValue().prenom }} </h4>
+                                        <p class="text-secondary mb-1">{{specialistesValue().specialite }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mt-3"></div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card mb-3 ">
+                            <div class="card-body">
+                                <div class="menu">
+                                    <nav class="navbar navbar-expand-lg navbar-light ">
+                                        <div class="collapse navbar-collapse" id="navbarSupportedContent" type="button"
+                                            style="text-align: center;">
+                                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                                                <li class="nav-item">
+                                                    <a class="nav-link fw-bold ms-5" routerLinkActive="active"
+                                                        [routerLink]="['/specialiste/home']">Profile</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link fw-bold ms-5"
+                                                        [routerLink]="['/specialiste/gestion/Enquetes']"
+                                                        routerLinkActive="active">Gestion des Enquetes</a>
+                                            </ul>
+                                        </div>
+                                    </nav>
+                                    <hr>
+                                    <hr class="hr">
+                                </div>
+                                <div class="container info-user text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Body-->
+    </body>
+
+   
