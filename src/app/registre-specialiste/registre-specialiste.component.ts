@@ -47,7 +47,7 @@ export class RegistreSpecialisteComponent implements OnInit {
   public changeTele(){
     console.log("hi focus")
     //if(this.TELE.length===2) this.TELE+='-';
-    if(this.TELE.length===0)this.TELE = '()-';
+    if(this.TELE.length===0)this.TELE = '(212)-';
   }
 
   private FileSizeValidator(min: number, max: number): ValidatorFn {

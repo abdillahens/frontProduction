@@ -96,7 +96,7 @@ export class AdminClientSideComponent implements OnInit {
   }
   
   public changeTele(){
-    if(this.TELE.length===0)this.TELE = '()-';
+    if(this.TELE.length===0)this.TELE = '(212)-';
   }
 
   ajouter(){
