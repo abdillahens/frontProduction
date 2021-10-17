@@ -17,6 +17,15 @@ export class NavbarComponent implements OnInit {
 
   constructor(private _router : Router,private _auth : AuthService) {
   }
+  public navigate(){
+    window.scrollTo(0, document.getElementById('apropos')!.offsetTop-100);
+  }
+  public navigateContact(){
+    window.scrollTo(0, document.getElementById('contact')!.offsetTop-100);
+  }
+  public navigateEquipe(){
+    window.scrollTo(0, document.getElementById('equipe')!.offsetTop-0);
+  }
 
   public signUp(){
     $('#elegantModalFormRegistre').modal('show');

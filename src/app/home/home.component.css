@@ -86,6 +86,7 @@ H1 { text-align: center }
 
 .all{
     /* background-color: rgb(240, 240, 240) !important; */
+
 }
 .active{
     /* text-decoration: underline !important; */
@@ -281,4 +282,41 @@ label:focus,
 	margin-left: 1px;
 	font-size: 20px;
 	float: right;
+}
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.mobile-nav-toggle {
+  color: rgb(0, 0, 0);
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+.mobile-nav-toggle.bi-x {
+  color: rgb(0, 0, 0);
+}
+
+@media  screen and (max-width:1199px) {
+  .gutters-sm {
+      margin-right: -30px;
+      margin-left: -30px;
+  }
+  .active{
+      border: none !important;
+  }
+  
+}
+@media (max-width:576px){
+  .modal-xl{
+    width: 90%  !important;
+  }
+  .inscrire{
+width: 100% !important;
+    background-color: #2196f3 !important;
+    color: white;
+  }
 }

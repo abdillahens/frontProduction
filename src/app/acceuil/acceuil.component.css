@@ -11,7 +11,23 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
+  background-color: #37517e !important;
 
+}
+.intl-tel-input {
+  display: table-cell;
+}
+.intl-tel-input .selected-flag {
+  z-index: 4;
+}
+.intl-tel-input .country-list {
+  z-index: 5;
+}
+.input-group .intl-tel-input .form-control {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0;
 }
 
 a {
@@ -150,6 +166,22 @@ h1, h2, h3, h4, h5, h6 {
 /**
 * Mobile Navigation 
 */
+
+.intl-tel-input {
+  display: table-cell;
+}
+.intl-tel-input .selected-flag {
+  z-index: 4;
+}
+.intl-tel-input .country-list {
+  z-index: 5;
+}
+.input-group .intl-tel-input .form-control {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0;
+}
 .mobile-nav-toggle {
   color: #fff;
   font-size: 28px;
@@ -170,7 +202,46 @@ h1, h2, h3, h4, h5, h6 {
   .navbar ul {
     display: none;
   }
+  #elegantModalFormRegistre{
+    
+    width: 100% !important;
+    margin-top: 1.5%;
+    font-family: "Open Sans", sans-serif !important;
+  }
+  
+  .modal-xl{
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .modal-body{
+    margin : 0 !important;
+    width: 100% !important;
+  }
 }
+
+@media (max-width: 500px){
+  
+  .mobile-nav-toggle {
+    display: block;
+  }
+  .navbar ul {
+    display: none;
+  }
+  #elegantModalFormRegistre{
+    
+    width: 100% !important;
+    margin-top: 1.5%;
+    font-family: "Open Sans", sans-serif !important;
+  }
+  .modal-xl{
+    margin: 0 !important;
+  }
+  .modal-body{
+    margin : 0 !important;
+    width: 100% !important;
+  }
+}
+
 
 .navbar-mobile {
   position: fixed;
@@ -258,14 +329,15 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   background: #37517e;
   height: 100vh;
+  padding-top: 0 !important;
 }
 
 #hero .container {
-  padding-top: 72px;
+  padding-top: 0px !important;
 }
 
 #hero h1 {
-  margin: 0 0 10px 0;
+  margin: 0 0 0px 0;
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
@@ -337,6 +409,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .animated {
+  
   animation: up-new 20s ease-in-out infinite alternate-reverse both;
 }
 
@@ -368,7 +441,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
   }
   #hero .hero-img img {
-    width: 70%;
+    /* width: 70%; */
   }
 }
 
@@ -645,17 +718,7 @@ section {
   }
 }
 
-@media (max-width: 992px) {
-  .why-us .img {
-    min-height: 400px;
-  }
-  .why-us .content {
-    padding-top: 30px;
-  }
-  .why-us .accordion-list {
-    padding-bottom: 30px;
-  }
-}
+
 
 @media (max-width: 575px) {
   .why-us .img {
@@ -1180,12 +1243,7 @@ section {
   background: #23a3df;
 }
 
-@media (max-width: 992px) {
-  .pricing .box {
-    max-width: 60%;
-    margin: 0 auto 30px auto;
-  }
-}
+
 
 @media (max-width: 767px) {
   .pricing .box {
@@ -1488,11 +1546,7 @@ section {
   margin-top: 72px;
 }
 
-@media (max-width: 992px) {
-  .breadcrumbs {
-    margin-top: 68px;
-  }
-}
+
 
 .breadcrumbs h2 {
   font-size: 28px;
@@ -1744,39 +1798,7 @@ section {
     margin-top: 4%;
     font-family: "Open Sans", sans-serif !important;
   }
-  #elegantModalFormRegistre{
-    /* width: 500px !important;
-    margin: auto !important; */
-    margin-top: 1.5%;
-    font-family: "Open Sans", sans-serif !important;
-  }
-
-  #elegantModalFormSuccess{
-
-    margin-top: 10%;
-    font-family: "Open Sans", sans-serif !important;
-
-  }
-
-  .modal-xl{
-    width: 60% !important;
-  }
   
-  .modal-content{
-    /* background-color: #37517e !important; */
-  }
-
-  .inscrire{
-    width: 25% !important;
-    margin: auto;
-    background-color: #2196f3 !important;
-    color: white;
-  }
-  .inscrire:hover{
-
-    background-color: #476394 !important;
-    color: white;
-  }
 
   textarea:hover, 
 input:hover, 
@@ -1842,4 +1864,63 @@ footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
 .nav-active {
   background-color:#fff;
   box-shadow: 5px -1px 12px -5px grey;
+}
+#elegantModalFormRegistre{
+  /* width: 500px !important;
+  margin: auto !important; */
+  margin-top: 1.5%;
+  font-family: "Open Sans", sans-serif !important;
+}
+
+#elegantModalFormSuccess{
+
+  margin-top: 10%;
+  font-family: "Open Sans", sans-serif !important;
+
+}
+
+
+
+.modal-content{
+  /* background-color: #37517e !important; */
+}
+
+.inscrire{
+
+  margin: auto;
+  width: 25%;
+  background-color: #2196f3 !important;
+  color: white;
+}
+.inscrire:hover{
+
+  background-color: #476394 !important;
+  color: white;
+}
+
+.modal-xl{
+  width: 60% ;
+}
+@media all and (max-width:992px){
+  .modal-xl{
+    width: 80%  !important;
+  }
+  .inscrire{
+width: 100% !important;
+    background-color: #2196f3 !important;
+    color: white;
+  }
+}
+.scrollto{
+  font-weight: bold !important;
+}
+@media (max-width:550px){
+  .modal-xl{
+    width: 100%  !important;
+  }
+  .inscrire{
+width: 100% !important;
+    background-color: #2196f3 !important;
+    color: white;
+  }
 }

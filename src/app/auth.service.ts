@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -16,6 +16,7 @@ export class AuthService {
   private _loginUrlGoogle = 'http://80.240.28.95/backend/login-google'
 
   constructor(private http : HttpClient,private _router : Router) { }
+
 
   public loginUserGoogle( token : String){
     return this.http.post<any>(this._loginUrlGoogle,{token : token});
@@ -46,7 +47,9 @@ export class AuthService {
   }
  
   public uploadProfile(id : number , myFile : FormData){
-    return this.http.post<any>('http://80.240.28.95/backend/upload/img/client',myFile,{params: {id:id}});
+    
+
+    return this.http.post<any>('http://80.240.28.95/backend/upload/img/client',myFile,{params: {id:id} },);
   }
 
 

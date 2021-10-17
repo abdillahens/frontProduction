@@ -7,6 +7,7 @@ import { AuthService } from '../auth.service';
   templateUrl: './confirmation.component.html',
   styleUrls: ['./confirmation.component.css']
 })
+
 export class ConfirmationComponent implements OnInit {
 
   private id : any = this.route.snapshot.paramMap.get('id');
@@ -16,6 +17,7 @@ export class ConfirmationComponent implements OnInit {
   ngOnInit(): void {
 
     this._auth.ConfirmAuth(this.id).subscribe(
+
       res=> {
 
         localStorage.removeItem('authorization');

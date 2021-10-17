@@ -116,6 +116,29 @@
         margin-bottom: -15%;
         color: #495057;
     }
+    #login{
+        /* height: 100vh !important; */
+        /* background-color: #37517e !important; */
+    }
+    @media screen and (max-width:767px) {
+
+        .btnRegister{
+            float: left;
+            position: relative;
+            transform: translateX(50%) !important;
+            /* left: 50%; */
+            margin-top: 20%;
+            border: none;
+            border-radius: 1.5rem;
+            padding: 2%;
+            background: #0062cc;
+            color: #fff;
+            font-weight: 600;
+            width: 50%;
+            cursor: pointer;
+        }
+
+    }
     
     /* .divider-text {
         position: relative;

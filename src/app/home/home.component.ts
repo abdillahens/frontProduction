@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   public static clt : any;
   clt= this.clientsValue();
   registerForm: any;
+  public uploaded = false;
 
   constructor(private _auth : AuthService,private _gestionClient : GestionClientService,private _router : Router,private formBuilder: FormBuilder,private http: HttpClient) {}
  
@@ -43,6 +44,7 @@ export class HomeComponent implements OnInit {
   }
   
   public changePhoto(){
+    this.uploaded=true;
     
     const formDataProfile = new FormData();
     formDataProfile.append('file', this.image);
@@ -50,11 +52,13 @@ export class HomeComponent implements OnInit {
       
       res=>{
 
+        this.uploaded = false;
         (document.getElementById('myImage3') as HTMLFormElement).src = res.src;
+        console.log("uplaod sucess")
         $('#addPhoto').modal('hide');
         location.reload();
         
-      },err=>{console.log(err)}
+      },err=>{this.uploaded = false;console.log('upload failled');console.log(err)}
       );
     
 

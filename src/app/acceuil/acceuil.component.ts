@@ -24,18 +24,28 @@ export class AcceuilComponent implements OnInit {
   continueForm: any;
   password: any;
 
+
+
   constructor(private _auth : AuthService,private _router : Router,private formBuilder: FormBuilder,private authService : SocialAuthService) { }
 
   //////////////// change tele
   public changeTele(){
 
     //if(this.TELE.length===2) this.TELE+='-';
-    if(this.TELE.length===0)this.TELE = '()-';
+    if(this.TELE.length===0)this.TELE = '(212)-';
   }
 
   public signIn(){
     $('#elegantModalFormRegistre').modal('show');
   }
+  // public navigate(){
+
+  //   document.getElementById("apropos")?.scrollIntoView({
+  //     behavior: 'smooth',
+  //     block: 'end',
+  //     inline: 'nearest'
+  // });
+  // }
   //////////////login
   public async loginSubmit(){
 

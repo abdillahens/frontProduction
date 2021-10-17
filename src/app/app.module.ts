@@ -29,7 +29,12 @@ import { DepressionComponent } from './depression/depression.component';
 import { StressComponent } from './stress/stress.component';
 import { GestionEnquetesComponent } from './gestion-enquetes/gestion-enquetes.component';
 import { ExcelFileComponent } from './excel-file/excel-file.component';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {Ng2TelInput, Ng2TelInputModule} from 'ng2-tel-input';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { PhotoProfileComponent } from './photo-profile/photo-profile.component';
 
 
 
@@ -55,6 +60,7 @@ import { ExcelFileComponent } from './excel-file/excel-file.component';
     StressComponent,
     GestionEnquetesComponent,
     ExcelFileComponent,
+    PhotoProfileComponent,
    
   ],
 
@@ -66,7 +72,9 @@ import { ExcelFileComponent } from './excel-file/excel-file.component';
     AppRoutingModule,
     ReactiveFormsModule,
     SocialLoginModule,
-    ToastrModule.forRoot()
+    NgxIntlTelInputModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
 
   ],
   providers: [AuthService,SocialAuthService,AuthGuard

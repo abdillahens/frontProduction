@@ -42,7 +42,6 @@ pathMatch : 'full'
   path : 'profile',
   component : ProfileComponent
 },
-
 {
   path : 'denied',
   component : AccessDeniedComponent
@@ -121,6 +120,12 @@ canActivate : [AuthClientGuardGuard],}
   
   path : 'admin/specialiste-side',
   component : AdminSpecialisteSideComponent,
+  canActivate : [AuthAdminGuardGuard ]
+},
+{
+  
+  path : 'admin/gestion-enquetes',
+  component : GestionEnquetesComponent,
   canActivate : [AuthAdminGuardGuard ]
 },
 
