@@ -84,6 +84,7 @@ export class AcceuilComponent implements OnInit {
     // console.log(this.nom,this.prenom,this.sexe,this.date_naissance,this.email,this.tele,this.profession,this.password)
     this.submitted = true;
     const {nom,prenom,sexe,date_naissance,email,tele,profession,niveauScolaire,password} = this.registerForm.value;
+
     if (this.registerForm.invalid) {
         return;
     }
@@ -200,7 +201,7 @@ private blue(): ValidatorFn {
       passwordConfirm: ['', [Validators.required,this.blue()]],
       sexe : ['', [Validators.required]],
       date_naissance : ['', [Validators.required]],
-      niveauScolaire : ['', [Validators.required]],
+      niveauScolaire : ['', []],
       profession : ['', [Validators.required]] },{
         // validator: this.MustMatch('password', 'confirmPassword')
       });
