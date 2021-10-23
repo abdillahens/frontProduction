@@ -10,13 +10,14 @@
                             alt="client" class="rounded-circle profile" width="200" height="200"></div>
                     <br>
                     <h4>{{clientsValue().nom}} {{clientsValue().prenom}}</h4>
-                    <p class="mt-3">veuillez charger votre photo de profile</p> <br><br>
+                    <p class="mt-3 mb-4">veuillez charger votre photo de profile</p>
                     <div class="mb-4">
                         <input class="file-input form-control" (change)="selectImg($event)" type="file"  accept="image/png, image/gif, image/jpeg"
                             #UploadFileInput />
                     </div>
-                    <button class="btn submit" (click)="changePhoto()" [disabled]="charged"  >ajouter</button>
-                    <h4 *ngIf="uploaded">Chargement ...</h4>
+                    <button class="btn submit mb-2" (click)="changePhoto()" [disabled]="charged"  >ajouter</button>
+                    <h6 *ngIf="message" class="text-danger">{{message}}</h6>
+                    <h4 *ngIf="uploaded" class="chargement">Chargement <span>.</span><span>.</span><span>.</span></h4>
 
                 </div>
             </div>
@@ -249,6 +250,9 @@
                                         </div>
                                     </div>
                                 </div>
+                            
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" formControlName="email" placeholder="Votre email *"
                                         class="form-control validate"
@@ -258,8 +262,6 @@
                                         <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" placeholder="Votre numèro de téléphone *" formControlName="tele"
                                         class="form-control validate"
@@ -277,22 +279,22 @@
                                         <div *ngIf="f.adresse.errors.required">Adresse est obligatoire</div>
                                     </div>
                                 </div> -->
-                                <div class="form-group">
+                                <div class="form-group" >
                                     <select formControlName="profession" class="form-control validate"
                                         [ngClass]="{ 'is-invalid': submitted && f.profession.errors }"
-                                        class="custom-select validate">
+                                        class="custom-select validate" >
                                         <option value="" selected disabled>Votre profession *</option>
-                                        <option value="Etudiant">Etudiant</option>
-                                        <option value="Professeur">Professeur</option>
-                                        <option value="Doctorant">Doctorant</option>
-                                        <option value="autre">autre</option>
+                                        <option value="Etudiant" disabled>Etudiant</option>
+                                        <option value="Professeur" disabled>Professeur</option>
+                                        <option value="Doctorant" disabled>Doctorant</option>
+                                        <option value="autre" disabled>autre</option>
                                     </select>
                                     <div *ngIf="submitted && f.profession.errors" class="invalid-feedback">
                                         <div *ngIf="f.profession.errors.required">profession est obligatoire</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <select formControlName="niveauScolaire" class="form-control validate"
+                                    <select *ngIf="f.profession.value === 'Etudiant' " formControlName="niveauScolaire" class="form-control validate"
                                     [ngClass]="{ 'is-invalid': submitted && f.niveauScolaire.errors }"
                                     class="custom-select validate">
                                     <option value="" selected disabled>Votre niveau scolaire *</option>

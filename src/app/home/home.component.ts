@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   public user = {
     date_naissance: '',id : 0,email: '',nom: '',numero_tele: '',prenom: '',profession: '',adresse: '',sexe:'',role: '',picture:'',niveauScolaire:''
   };
+  public message = '';
   submitted: boolean | undefined;
   selectedFile = null;
   public static clients : Array<any> = [];
@@ -44,8 +45,16 @@ export class HomeComponent implements OnInit {
   }
   
   public changePhoto(){
-    this.uploaded=true;
     
+    console.log(this.image.size > 1000000)
+
+    if(this.image.size > 1000000){
+      this.message = "la taille du photo doit étre inférieure à 1 Mo !"
+      return;
+    }
+
+    this.message='';
+    this.uploaded=true;
     const formDataProfile = new FormData();
     formDataProfile.append('file', this.image);
     this._auth.uploadProfile(this.user.id,formDataProfile).subscribe(
@@ -58,7 +67,7 @@ export class HomeComponent implements OnInit {
         $('#addPhoto').modal('hide');
         location.reload();
         
-      },err=>{this.uploaded = false;console.log('upload failled');console.log(err)}
+      },err=>{this.uploaded = false;this.message="veuillez ressayer utlterierement";console.log('upload failled');console.log(err)}
       );
     
 
@@ -108,6 +117,7 @@ export class HomeComponent implements OnInit {
       this._auth.getInformation().subscribe(
         res => {
           this.user = res;
+          console.log(this.user);
         },
         err => {
           if(err instanceof HttpErrorResponse){
@@ -122,7 +132,7 @@ export class HomeComponent implements OnInit {
             tele: [this.user.numero_tele, [Validators.required,Validators.pattern("^((\\([0-9][0-9][0-9]\\))|(\\([0-9][0-9]\\)))?\\-[0-9]{10}$")] ],
             sexe : [this.user.sexe, [Validators.required]],
             date_naissance : [this.user?.date_naissance ? this.user.date_naissance.split('T')[0] : "null", [Validators.required]],
-            niveauScolaire : [this.user.niveauScolaire, [Validators.required]],
+            niveauScolaire : [this.user.niveauScolaire, []],
             // adresse : [this.user.adresse, [Validators.required]],
             profession : [this.user.profession, [Validators.required]] },{
               // validator: this.MustMatch('password', 'confirmPassword')
@@ -137,7 +147,7 @@ export class HomeComponent implements OnInit {
             tele: [this.user.numero_tele, [Validators.required,Validators.pattern("^((\\([0-9][0-9][0-9]\\))|(\\([0-9][0-9]\\)))?\\-[0-9]{10}$")] ],
             sexe : [this.user.sexe, [Validators.required]],
             date_naissance : [ this.user.date_naissance, [Validators.required]],
-            niveauScolaire : [this.user.niveauScolaire, [Validators.required]],
+            niveauScolaire : [this.user.niveauScolaire, []],
             // adresse : [this.user.adresse, [Validators.required]],
             profession : [this.user.profession, [Validators.required]] },{
               // validator: this.MustMatch('password', 'confirmPassword')

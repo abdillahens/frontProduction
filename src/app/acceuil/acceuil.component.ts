@@ -161,7 +161,7 @@ export class AcceuilComponent implements OnInit {
             tele: ['', [Validators.required,Validators.pattern("^((\\([0-9][0-9][0-9]\\))|(\\([0-9][0-9]\\)))?\\-[0-9]{10}$")] ],
             sexe : ['', [Validators.required]],
             date_naissance : ['', [Validators.required]],
-            niveauScolaire : ['', [Validators.required]],
+            niveauScolaire : ['', []],
             profession : ['', [Validators.required]] },{
               // validator: this.MustMatch('password', 'confirmPassword')
             });
@@ -212,7 +212,7 @@ private blue(): ValidatorFn {
         tele: ['', [Validators.required,Validators.pattern("^((\\([0-9][0-9][0-9]\\))|(\\([0-9][0-9]\\)))?\\-[0-9]{10}$")] ],
         sexe : ['', [Validators.required]],
         date_naissance : ['', [Validators.required]],
-        niveauScolaire : ['', [Validators.required]],
+        niveauScolaire : ['', []],
         profession : ['', [Validators.required]] },{
           
         });

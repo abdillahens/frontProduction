@@ -29,10 +29,13 @@ export class DepressionComponent implements OnInit {
   test: any;
   form: FormGroup = new FormGroup({});
   message: any;
+  uploaded=false;
   constructor(private _auth : AuthService,private _Client : GestionClientService,private _router : Router,private http: HttpClient ,private formBuilder: FormBuilder,private _test : GestionTestService) {}
  
   private image: File = new File(["foo"], "foo.txt");
   public charged = true;
+
+  
 
   selectImg(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -45,20 +48,33 @@ export class DepressionComponent implements OnInit {
   
   public changePhoto(){
     
+    console.log(this.image.size > 1000000)
+
+    if(this.image.size > 1000000){
+      this.message = "la taille du photo doit étre inférieure à 1 Mo !"
+      return;
+    }
+
+    this.message='';
+    this.uploaded=true;
     const formDataProfile = new FormData();
     formDataProfile.append('file', this.image);
     this._auth.uploadProfile(this.user.id,formDataProfile).subscribe(
       
       res=>{
+
+        this.uploaded = false;
         (document.getElementById('myImage3') as HTMLFormElement).src = res.src;
-       this._router.navigate(['/home']);
-       $('#addPhoto').modal('hide');
-      }
-      ,err=>{console.log(err)}
+        console.log("uplaod sucess")
+        $('#addPhoto').modal('hide');
+        location.reload();
+        
+      },err=>{this.uploaded = false;this.message="veuillez ressayer utlterierement";console.log('upload failled');console.log(err)}
       );
     
 
   }
+
 
   public editPhoto(){
     $('#exampleModalCenter').modal('show');
@@ -73,7 +89,7 @@ export class DepressionComponent implements OnInit {
     if (this.form.invalid) {
       return;
   }
-    let response = {"user_id" : 2, "test_id" : "3",
+    let response = {"user_id" : this.user.id, "test_id" : "3",
     "question" : [
       {"id" : 18, "user_answer" : {"id" : this.form.value.Q18}},
       {"id" : 19, "user_answer" : {"id" : this.form.value.Q19}},

@@ -20,17 +20,16 @@ window.onscroll = () => {
         <li class="nav-item"><a class="nav-link scrollto" (click)="navigate()">À propos</a></li>
         <li class="nav-item"><a class="nav-link scrollto" (click)="navigateEquipe()">Notre équipe</a></li>
         <li class="nav-item"><a class="nav-link scrollto" (click)="navigateContact()">Contact</a></li>
-        <li class="nav-item">  <a class="getstarted" href="/registre/specialiste">Rejoinez nous</a></li>
+        <li *ngIf="!isLogged" class="nav-item">  <a class="getstarted nav-link scrollto" (click)="signUp()">S'inscrire</a></li>
     </ul>
 
     <li class="nav-item dropdown form-inline pr-5"><a class="getstarted scrollto" ><i class="fa fa-user me-1" aria-hidden="true"></i>
         Compte</a>
         <ul>
-          <li *ngIf="!isLogged"><a  (click)="signUp()">S'inscrire</a></li>
           <li *ngIf="!isLogged"><a (click)="signIn()" >Se connecter</a></li>
           <li (click)="profile()" *ngIf="isLogged"><a>Mon espace</a></li>
           <li><a >Contactez nous</a></li>
-          
+          <li *ngIf="!isLogged"><a   href="/registre/specialiste">Rejoinez nous</a></li>
           <li *ngIf="isLogged"><a (click)="log_out()">Déconnecter</a></li>
         </ul>
     </li>

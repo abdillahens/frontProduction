@@ -300,6 +300,31 @@ label:focus,
   color: rgb(0, 0, 0);
 }
 
+.chargement span {
+  font-size: 1.5em;
+  color: transparent;
+  display: inline-block;
+  animation: move 2s ease-in-out infinite;
+}
+
+@keyframes move {
+  0% {
+    color: transparent;
+  }
+  100% {
+    color: black;
+  }
+}
+
+.chargement span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.chargement span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+
 @media  screen and (max-width:1199px) {
   .gutters-sm {
       margin-right: -30px;

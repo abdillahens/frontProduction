@@ -42,7 +42,8 @@ export class AnexityComponent implements OnInit {
   clt= this.clientsValue();
   test: any;
   form: FormGroup = new FormGroup({});
-  message: any;
+  message='';
+  uploaded=false;
   constructor(private _auth : AuthService,private _Client : GestionClientService,private _router : Router,private http: HttpClient ,private formBuilder: FormBuilder,private _test : GestionTestService) {}
  
   private image: File = new File(["foo"], "foo.txt");
@@ -58,20 +59,34 @@ export class AnexityComponent implements OnInit {
   }
   
   public changePhoto(){
+    
+    console.log(this.image.size > 1000000)
 
+    if(this.image.size > 1000000){
+      this.message = "la taille du photo doit étre inférieure à 1 Mo !"
+      return;
+    }
+
+    this.message='';
+    this.uploaded=true;
     const formDataProfile = new FormData();
     formDataProfile.append('file', this.image);
     this._auth.uploadProfile(this.user.id,formDataProfile).subscribe(
       
       res=>{
+
+        this.uploaded = false;
         (document.getElementById('myImage3') as HTMLFormElement).src = res.src;
-        this._router.navigate(['/home']);
+        console.log("uplaod sucess")
         $('#addPhoto').modal('hide');
-      },err=>{console.log(err)}
+        location.reload();
+        
+      },err=>{this.uploaded = false;this.message="veuillez ressayer utlterierement";console.log('upload failled');console.log(err)}
       );
     
 
   }
+
 
   public editPhoto(){
     $('#exampleModalCenter').modal('show');
@@ -89,7 +104,8 @@ export class AnexityComponent implements OnInit {
       return;
   }
   
-    let response = {"user_id" : 2, "test_id" : "2",
+ 
+    let response = {"user_id" : this.user.id, "test_id" : "2",
     "question" : [
       {"id" : 11, "user_answer" : {"id" : this.form.value.Q11}},
       {"id" : 12, "user_answer" : {"id" : this.form.value.Q12}},
@@ -103,6 +119,7 @@ export class AnexityComponent implements OnInit {
     this._test.setResponse(response).subscribe(
       res=>
       {
+        
         this.message = res.message;
         $('#myModal').modal('show');
         setTimeout(() => {
@@ -130,6 +147,7 @@ export class AnexityComponent implements OnInit {
       this._auth.getInformation().subscribe(
         res => {
           this.user = res;
+          console.log(this.user);
         },
         err => {
           if(err instanceof HttpErrorResponse){
@@ -137,6 +155,7 @@ export class AnexityComponent implements OnInit {
           }});
           (await this._test.getTest(2)).subscribe(
     res=>{
+    
       this.test = res.question;
       console.log(this.test)
       this.uploading = false;},
