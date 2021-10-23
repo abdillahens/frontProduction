@@ -74,6 +74,7 @@ export class AnexityComponent implements OnInit {
     this._auth.uploadProfile(this.user.id,formDataProfile).subscribe(
       
       res=>{
+        
 
         this.uploaded = false;
         (document.getElementById('myImage3') as HTMLFormElement).src = res.src;
@@ -155,7 +156,13 @@ export class AnexityComponent implements OnInit {
           }});
           (await this._test.getTest(2)).subscribe(
     res=>{
-    
+      this.message='';
+      
+        if(res.message){
+          this.message = "vous avez passer ce test , veuillez attendre jusqu'à la fin du traitement de votre test";
+          this.uploading=false;
+          return ;
+        }
       this.test = res.question;
       console.log(this.test)
       this.uploading = false;},

@@ -300,7 +300,28 @@ label:focus,
     display: inline-block;
     animation: move 2s ease-in-out infinite;
   }
-  
+  .message-zone{
+
+    position: relative;
+    left: 50%;
+    border-radius: 5px;
+transform: translate(-55%);
+color: black;
+background-color: #e2e8f0 !important;
+
+  }
+  .fa-clipboard-check{
+      color: black;
+      font-size: 2.1em;
+      background-color: blanchedalmond;
+  }
+  footer{
+      position: relative;
+      bottom: 0px;
+      left: 50%;
+      transform: translate(-50%);
+      /* top: 100%; */
+  }
   @keyframes move {
     0% {
       color: transparent;

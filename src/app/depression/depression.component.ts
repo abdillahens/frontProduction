@@ -137,9 +137,18 @@ export class DepressionComponent implements OnInit {
           }});
           (await this._test.getTest(3)).subscribe(
     res=>{
+      this.message='';
+      
+      if(res.message){
+        this.message = "vous avez passer ce test , veuillez attendre jusqu'à la fin du traitement de votre test";
+        this.uploading=false;
+        return ;
+      }
+      console.log(res);
       this.test = res.question;
-      console.log(this.test);
-      this.uploading = false;},
+      // console.log(this.test);
+      this.uploading = false;
+    },
     err=>{
       setTimeout(() => {
         this.refresh =true;

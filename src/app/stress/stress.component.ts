@@ -156,6 +156,13 @@ export class StressComponent implements OnInit {
           // console.log(token);
           (await this._test.getTest(1)).subscribe(
     res=>{
+      this.message='';
+      
+      if(res.message){
+        this.message = "vous avez passer ce test , veuillez attendre jusqu'à la fin du traitement de votre test";
+        this.uploading=false;
+        return ;
+      }
       this.test = res.question;
       console.log(this.test)
       this.uploading = false;},
