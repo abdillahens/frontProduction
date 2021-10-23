@@ -18,17 +18,17 @@ window.onscroll = () => {
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
    <ul class="navbar-nav mr-auto text-center ms-4">
        <li class="nav-item"><a class="nav-link scrollto me-4" href="/acceuil">Acceuil</a></li>
-       <li class="nav-item"><a class="nav-link scrollto">Support</a></li>
+       <li class="nav-item"><a class="nav-link scrollto" href="/contact-nous">Contactez-nous</a></li>
 
    </ul>
 
      <li class="nav-item dropdown form-inline "><a class="getstarted scrollto" ><i class="fa fa-user me-1" aria-hidden="true"></i>
        Compte</a>
        <ul>
-         <li *ngIf="!isLogged"><a  (click)="signUp()">S'inscrire</a></li>
-         <li *ngIf="!isLogged"><a (click)="signIn()" >Se connecter</a></li>
+         <!-- <li *ngIf="!isLogged"><a  (click)="signUp()">S'inscrire</a></li>
+         <li *ngIf="!isLogged"><a (click)="signIn()" >Se connecter</a></li> -->
          <li (click)="profile()" *ngIf="isLogged"><a>Mon espace</a></li>
-         <li><a >Contactez nous</a></li>
+         <li><a href="/contact-nous">Contactez nous</a></li>
          
          <li *ngIf="isLogged"><a (click)="log_out()">Déconnecter</a></li>
        </ul>

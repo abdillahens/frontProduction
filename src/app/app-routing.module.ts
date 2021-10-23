@@ -11,6 +11,7 @@ import { AuthClientGuardGuard } from './auth-client-guard.guard';
 import { AuthSpecialisteGuardGuard } from './auth-specialiste-guard.guard';
 import { AuthGuard } from './auth.guard';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DepressionComponent } from './depression/depression.component';
 import { ErrorInRoutingComponent } from './error-in-routing/error-in-routing.component';
 import { ExcelFileComponent } from './excel-file/excel-file.component';
@@ -54,6 +55,10 @@ pathMatch : 'full'
 {
   path : 'acceuil/:id',
   component : ConfirmationComponent
+},
+{
+  path : 'contact-nous',
+  component : ContactUsComponent
 },
 {
   path : 'specialiste/home',

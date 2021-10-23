@@ -35,6 +35,7 @@ import {Ng2TelInput, Ng2TelInputModule} from 'ng2-tel-input';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PhotoProfileComponent } from './photo-profile/photo-profile.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 
@@ -61,6 +62,7 @@ import { PhotoProfileComponent } from './photo-profile/photo-profile.component';
     GestionEnquetesComponent,
     ExcelFileComponent,
     PhotoProfileComponent,
+    ContactUsComponent,
    
   ],
 
