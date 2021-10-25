@@ -43,6 +43,7 @@ export class StressComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   message: any;
   uploaded=false;
+  message2='';
   constructor(private _auth : AuthService,private _Client : GestionClientService,private _router : Router,private http: HttpClient ,private formBuilder: FormBuilder,private _test : GestionTestService) {}
  
   private image: File = new File(["foo"], "foo.txt");
@@ -62,11 +63,11 @@ export class StressComponent implements OnInit {
     console.log(this.image.size > 1000000)
 
     if(this.image.size > 1000000){
-      this.message = "la taille du photo doit étre inférieure à 1 Mo !"
+      this.message2 = "la taille du photo doit étre inférieure à 1 Mo !"
       return;
     }
 
-    this.message='';
+    this.message2='';
     this.uploaded=true;
     const formDataProfile = new FormData();
     formDataProfile.append('file', this.image);
@@ -80,7 +81,7 @@ export class StressComponent implements OnInit {
         $('#addPhoto').modal('hide');
         location.reload();
         
-      },err=>{this.uploaded = false;this.message="veuillez ressayer utlterierement";console.log('upload failled');console.log(err)}
+      },err=>{this.uploaded = false;this.message2="veuillez ressayer utlterierement";console.log('upload failled');console.log(err)}
       );
     
 
@@ -117,6 +118,7 @@ export class StressComponent implements OnInit {
 
     this._test.setResponse(response).subscribe(
       res=>{
+        console.log(res);
         this.message = res.message;
         $('#myModal').modal('show');
         setTimeout(() => {
@@ -159,7 +161,7 @@ export class StressComponent implements OnInit {
       this.message='';
       
       if(res.message){
-        this.message = "vous avez passer ce test , veuillez attendre jusqu'à la fin du traitement de votre test";
+        this.message = "vous avez passé ce test , veuillez attendre jusqu'à la fin de traitement de votre test précédant";
         this.uploading=false;
         return ;
       }

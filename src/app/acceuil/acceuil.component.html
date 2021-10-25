@@ -64,13 +64,13 @@
 
                         <div class="md-form pb-3 form-group">
                             <input type="password" id="Form-pass1" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f2.password.errors }"
-                                class="form-control validate validate" placeholder="Votre mot de pass">
+                                class="form-control validate validate" placeholder="Votre mot de passe">
                             <div *ngIf="submitted && f2.password.errors" class="invalid-feedback">
-                                <div *ngIf="f2.password.errors.required">Password est obligatoire</div>
+                                <div *ngIf="f2.password.errors.required">Mot de passe est obligatoire</div>
                             </div>
                             <h6 *ngIf="loginFailled">
                                 <br>
-                                <div class="text-danger">Email ou le mot de pass est incorrect</div>
+                                <div class="text-danger">Email ou le mot de passe est incorrect</div>
                             </h6>
                             <!-- <p class="font-small blue-text d-flex justify-content-end mt-2"> <a href="#"
                                     class="blue-text mr-1">
@@ -83,21 +83,21 @@
                             class="btn blue-gradient btn-block btn-rounded z-depth-1a">Se
                             connecter</button>
                     </div>
-                    <p class="font-small grey-text text-right d-flex justify-content-center mb-3 pt-2"> Ou continuer
-                        avec:</p>
+                    <!-- <p class="font-small grey-text text-right d-flex justify-content-center mb-3 pt-2"> Ou continuer
+                        avec:</p> -->
 
-                    <div class="row my-3 d-flex  justify-content-center">
+                    <!-- <div class="row my-3 d-flex  justify-content-center"> -->
                         <!--Facebook-->
-                        <button type="button" class="btn btn-white reseux btn-rounded mr-md-3 z-depth-1a"><i
-                                class="fab fa-facebook-f text-center"></i></button>
+                        <!-- <button type="button" class="btn btn-white reseux btn-rounded mr-md-3 z-depth-1a"><i
+                                class="fab fa-facebook-f text-center"></i></button> -->
                         <!--Twitter-->
                         <!-- <button type="button" class="btn btn-white reseux btn-rounded mr-md-3 z-depth-1a"><i
                                 class="fab fa-twitter"></i></button> -->
                         <!--Google +-->
-                        <button (click)="signInGoogle()" type="button"
+                        <!-- <button (click)="signInGoogle()" type="button"
                             class="btn btn-white reseux btn-rounded z-depth-1a"><i
-                                class="fab fa-google-plus-g"></i></button>
-                    </div>
+                                class="fab fa-google-plus-g"></i></button> -->
+                    <!-- </div> -->
                 </div>
                 <!--Footer-->
                 <div class="modal-footer mx-5 pt-3 mb-1">
@@ -127,7 +127,7 @@
                     <div class="d-flex justify-content-center justify-content-lg-start">
                         <a class="btn-get-started scrollto" href="http://80.240.28.95/backend/download" ><i class="fas fa-download me-1"></i>Mobile App</a>
                         <a href="https://www.youtube.com/watch?v=Zhr0FmhSuzg&ab_channel=OCP" target="_blank" class="glightbox btn-watch-video"><i
-                                class="bi bi-play-circle"></i><span>Voir le video</span></a>
+                                class="bi bi-play-circle"></i><span>Voir la vidéo</span></a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -180,10 +180,59 @@
             </div>
         </div>
     </section>
+
+    <section id="why-us" class="why-us">
+        <div class="container-fluid" data-aos="fade-up">
+            <h4 class="align-center mb-0 display-4 text-center mb-5">
+                <strong class="text-white">Le rôle de Medico-call ?</strong>
+            </h4>
+  
+          <div class="row">
+            <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">  
+  
+              <div class="accordion-list p-0">
+                <ul>
+                  <li>
+                    <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Le bon suivi<i class="fas fa-chevron-down"></i></a>
+                    <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                      <p>
+                        Le rôle de Medico-call consiste à assurer un suivi psychologique de près pour le patient en lui accompagnant jusqu’à la phase de la stabilité mentale tout cela en lui offrant un soutien moral qui répond à ses besoins, ses exigences, et ses ambitions dans un cadre professionnel et anonymat absolu
+                      </p>
+                    </div>
+                  </li>
+  
+                  <li>
+                    <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-2"><span>02</span>Fournir un climat pour les gens <i class="fas fa-chevron-down"></i></a>
+                    <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                      <p>
+                        Medico-call s’engage à assurer un climat de dialogue et d’échange, son groupe de spécialistes hautement qualifiés dynamiques et actifs est toujours à l’écoute pour offrir un service à la hauteur et vous orientez à faire le bon choix dans le bon  moment, prendre des bonnes décisions et affronter les défis de demain.
+                      </p>
+                    </div>
+                  </li>
+  
+                  <li>
+                    <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-3"><span>03</span> assurer la confiance du patient <i class="fas fa-chevron-down"></i></a>
+                    <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                      <p>
+                        Outre, le rôle de Medico-call dépasse le secteur professionnel pour arriver à un stade de confiance liant le patient au spécialiste, cette relation qui dépasse les bornes donnant ce sentiment de chez soi d’être en famille et garder cette relation à jamais.
+                      </p>
+                    </div>
+                  </li>
+  
+                </ul>
+              </div>
+  
+            </div>
+  
+            <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("../../assets/img/role.jpeg");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
+          </div>
+  
+        </div>
+      </section><!-- End Why Us Section -->
     <!-- le role de medico call -->
     
     
-    <section class="features17 cid-sI5wL6cfiv" id="features18-e" style="background: #37517e;">
+    <!-- <section class="features17 cid-sI5wL6cfiv" id="features18-e" style="background: #37517e;">
         <div class="container">
             <div class="mbr-section-head" style="color: white; text-align: center;">
                 <div class="col-12">
@@ -220,8 +269,8 @@
                                 </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
+                </div> -->
+                <!-- <div class="col-12 col-md-6 col-lg-3">
                     <div class="card-wrapper mb-4">
                         <div class="card-box align-left">
                             
@@ -236,8 +285,7 @@
             </div>
         </div>
     </section>
-    
-    <!-- les avantages de medico call -->
+     -->
     
     <section class="content8 cid-sI5mH7ss9i" id="content8-5" style="background: #37517e;">
         
@@ -248,11 +296,10 @@
                     <h4 class="card-title mbr-fonts-style display-4" style="color: white; text-align: center;"><strong>Les avantages de Medico-call ?</strong></h4>
                     <div class="mbr-text mbr-fonts-style mb-4" style="color: #bbbbbb">
                         <ul>
-                            <li>Accès a un ensemble de tests psychologiques ( Dépression – Stress – Anxiété) <strong>gratuitement </strong>plus un accompagnement personnalisé selon vos scores.&nbsp;<a href="https://mobiri.se/" class="text-white">Essayez-le maintenant!</a></li>
-                            <li><strong>Service confidentiel</strong>, assuré par des spécialistes hautement qualifiés bien formés.&nbsp;<a href="https://mobiri.se/" class="text-white">Essayez-le maintenant!</a></li>
-                            <li><strong>Service disponible 24h/24 et 7j/7, </strong>assuré par des spécialistes hautement qualifiés bien formés.&nbsp;<a href="https://mobiri.se/" class="text-white">Essayez-le maintenant!</a></li>
+                            <li>Accès a un ensemble de tests psychologiques ( Dépression – Stress – Anxiété) <strong>gratuitement </strong>plus un accompagnement personnalisé selon vos scores.&nbsp;</li>
+                            <li><strong>Service confidentiel</strong>, assuré par des spécialistes hautement qualifiés bien formés.&nbsp;</li>
+                            <li><strong>Service disponible 24h/24 et 7j/7, </strong>assuré par des spécialistes hautement qualifiés bien formés.&nbsp;</li>
                         </ul>
-                        
                     </div>
                     </div>
                 </div>
@@ -269,14 +316,14 @@
         <li><a href="#">Accueil</a></li>
         <!-- <li><a href="#">Departement</a></li> -->
         <!-- <li><a href="#">Services</a></li> -->
-        <li><a href="#">A propos</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#apropos">A propos</a></li>
+        <li><a href="/contact-nous">Contact</a></li>
         </ul>
         <ul class="social_footer_ul">
-        <li><a href="http://facebook.com"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="http://linkedin.com"><i class="fab fa-linkedin"></i></a></li>
-        <li><a href="http://instagram.com"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.facebook.com/Medicocall"><i class="fab fa-facebook-f"></i></a></li>
+        <!-- <li><a href="http://twitter.com"><i class="fab fa-twitter"></i></a></li> -->
+        <li><a href="https://www.linkedin.com/company/medico-call/about/"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="https://www.instagram.com/medico.call/"><i class="fab fa-instagram"></i></a></li>
         </ul>
         <!--social_footer_ul ends here-->
         <br>
@@ -430,20 +477,20 @@
                         <button type="button" (click)="registreSubmit()"
                             class="btn blue-gradient btn-block btn-rounded z-depth-1a inscrire">S'inscrire</button>
                     </div>
-                    <p class="font-small grey-text text-right d-flex justify-content-center mb-3 pt-2"> Ou continuer
-                        avec:</p>
+                    <!-- <p class="font-small grey-text text-right d-flex justify-content-center mb-3 pt-2"> Ou continuer
+                        avec:</p> -->
 
                     <div class="row my-3 d-flex  justify-content-center">
                         <!--Facebook-->
-                        <button type="button" class="btn btn-white reseux btn-rounded mr-md-3 z-depth-1a"><i
-                                class="fab fa-facebook-f text-center"></i></button>
+                        <!-- <button type="button" class="btn btn-white reseux btn-rounded mr-md-3 z-depth-1a"><i
+                                class="fab fa-facebook-f text-center"></i></button> -->
                         <!--Twitter-->
                         <!-- <button type="button" class="btn btn-white reseux btn-rounded mr-md-3 z-depth-1a"><i
                                 class="fab fa-twitter"></i></button> -->
                         <!--Google +-->
-                        <button (click)="signInGoogle()" type="button"
+                        <!-- <button (click)="signInGoogle()" type="button"
                             class="btn btn-white reseux btn-rounded z-depth-1a"><i
-                                class="fab fa-google-plus-g"></i></button>
+                                class="fab fa-google-plus-g"></i></button> -->
                     </div>
                 </div>
                 <!--Footer-->
@@ -614,5 +661,6 @@ window.onscroll = () => {
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
 </html>

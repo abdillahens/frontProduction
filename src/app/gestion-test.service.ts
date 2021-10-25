@@ -23,7 +23,7 @@ export class GestionTestService {
   }
   
   public setResponse(response : any){
-    return this.http.post<any>('http://80.240.28.95/flask/test_taken',response);
+    return this.http.post<any>('https://medico-call-api.herokuapp.com/test_taken',response);
   }
   
 }

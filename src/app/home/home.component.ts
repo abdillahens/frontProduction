@@ -105,7 +105,7 @@ export class HomeComponent implements OnInit {
           setTimeout(()=>{
             $('#myModal').modal('hide');
             location.reload();
-          },1000)
+          },5000)
         },
         err=> console.log(err)
       )

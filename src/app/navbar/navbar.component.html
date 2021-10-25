@@ -28,7 +28,7 @@ window.onscroll = () => {
         <ul>
           <li *ngIf="!isLogged"><a (click)="signIn()" >Se connecter</a></li>
           <li (click)="profile()" *ngIf="isLogged"><a>Mon espace</a></li>
-          <li><a >Contactez nous</a></li>
+          <li><a href="/contact-nous">Contactez nous</a></li>
           <li *ngIf="!isLogged"><a   href="/registre/specialiste">Rejoinez nous</a></li>
           <li *ngIf="isLogged"><a (click)="log_out()">Déconnecter</a></li>
         </ul>

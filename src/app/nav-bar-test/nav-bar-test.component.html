@@ -18,7 +18,8 @@ window.onscroll = () => {
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
    <ul class="navbar-nav mr-auto text-center ms-4">
        <li class="nav-item"><a class="nav-link scrollto me-4" href="/acceuil">Acceuil</a></li>
-       <li class="nav-item"><a class="nav-link scrollto" href="/contact-nous">Contactez-nous</a></li>
+       <li class="nav-item"><a class="nav-link scrollto" [routerLink]="['/contact-nous']"
+        routerLinkActive="active" href="/contact-nous">Contactez-nous</a></li>
 
    </ul>
 
