@@ -102,8 +102,11 @@ export class DepressionComponent implements OnInit {
 
     ]};
 
+    $('#modalWaiting').modal('show');
+
     this._test.setResponse(response).subscribe(
       res=>{
+        $('#modalWaiting').modal('hide');
         console.log(res);
         this.message = res.message;
         $('#myModal').modal('show');

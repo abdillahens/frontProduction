@@ -117,10 +117,11 @@ export class AnexityComponent implements OnInit {
       {"id" : 16, "user_answer" : {"id" : this.form.value.Q16}},
       {"id" : 17, "user_answer" : {"id" : this.form.value.Q17}},
     ]};
-
+    $('#modalWaiting').modal('show');
     this._test.setResponse(response).subscribe(
       res=>
       {
+        $('#modalWaiting').modal('hide');
         console.log(res);
         this.message = res.message;
         $('#myModal').modal('show');

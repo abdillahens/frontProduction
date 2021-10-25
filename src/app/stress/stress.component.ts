@@ -95,7 +95,10 @@ export class StressComponent implements OnInit {
     $('#exampleModalCenter').modal('hide');
     $('#addPhoto').modal('show');
   }
+
     submitted = false;
+
+
   public submit(){
     this.submitted=true;
     if (this.form.invalid) {
@@ -114,10 +117,12 @@ export class StressComponent implements OnInit {
       {"id" : 9, "user_answer" : {"id" : this.form.value.Q9}},
       {"id" : 10, "user_answer" : {"id" : this.form.value.Q10}}
     ]};
-    console.log(this.form.value.Q1)
+    $('#modalWaiting').modal('show');
+
 
     this._test.setResponse(response).subscribe(
       res=>{
+        $('#modalWaiting').modal('hide');
         console.log(res);
         this.message = res.message;
         $('#myModal').modal('show');
@@ -128,10 +133,6 @@ export class StressComponent implements OnInit {
   },
       err=>console.log(err)
     );
-
-    $('#exampleModalCenterSucess').on('hidden.bs.modal',  () => {
-      this._router.navigate(['/home']);
-     });
 
   }
   public refreshUrl(){
